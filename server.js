@@ -1,9 +1,13 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 3001,
   mongoose = require('mongoose'),
   Donor = require('./api/models/donorModel'), //created model loading here
   bodyParser = require('body-parser');
+
+  var cors = require('cors');
+
+app.use(cors());
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
