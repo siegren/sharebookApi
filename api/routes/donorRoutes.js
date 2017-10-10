@@ -7,6 +7,9 @@ module.exports = function(app) {
     .get(donor.list_all_donors)
     .post(donor.create_a_donor);
 
+  app.route('/login')
+    .post(donor.login);
+
 
   app.route('/donors/:donorId')
     .get(donor.read_a_donor)

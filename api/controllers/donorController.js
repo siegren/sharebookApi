@@ -12,6 +12,15 @@ exports.list_all_donors = function(req, res) {
   });
 };
 
+exports.login = function(req, res) {
+  var user = req.body;
+  var a = 'INVALID'
+  Donor.find({"email": user.email, "password": user.password}, function(err, donor) {
+    if (err)
+      res.send(err);
+      res.json(donor);
+  });
+};
 
 
 
@@ -51,7 +60,7 @@ exports.delete_a_donor = function(req, res) {
   }, function(err, donor) {
     if (err)
       res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+    res.json({ message: 'User successfully deleted' });
   });
 };
 
